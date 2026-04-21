@@ -2,6 +2,7 @@ import Link from "next/link";
 import { HeroMemo } from "@/components/hero-memo";
 import { MarketingFooter } from "@/components/marketing-footer";
 import { MarketingNav } from "@/components/marketing-nav";
+import { RecentPresses } from "@/components/recent-presses";
 import { CiteRef, RisksSection } from "@/components/risks-section";
 
 export default function LandingPage() {
@@ -18,7 +19,8 @@ export default function LandingPage() {
             <span className="label">INVESTMENT MEMOS · AUTHORED BY AGENT</span>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-[1.2fr_1fr] md:items-end md:gap-16">
+          <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-[1.2fr_1fr] md:items-start md:gap-16">
+            {/* Left: headline + lede + CTAs + stats */}
             <div>
               <h1 className="editorial text-[56px] leading-[0.98] tracking-[-0.022em] text-ink md:text-[88px]">
                 Paste a URL.
@@ -58,26 +60,75 @@ export default function LandingPage() {
               </div>
             </div>
 
-            <div className="text-[13px] leading-[1.7] text-ink-2">
-              <p className="editorial-italic text-[17px] leading-[1.45] text-ink md:text-[18px]">
-                "By the time I'd finished my first-pass memo on Thatch, the
-                IC had already voted on two other deals. This quarter I'm
-                shipping them in ninety seconds."
-              </p>
-              <p className="mt-4 label !tracking-[0.16em]">
-                — M. Alves · Associate, Sable Capital
+            {/* Right: "In this issue" — real product component with byline photos */}
+            <div className="relative">
+              <RecentPresses />
+              <p className="mt-4 max-w-[38ch] text-[11.5px] leading-[1.6] text-ink-3">
+                Live from <span className="mono text-ink-2">/app</span>. Hover
+                a row to preview the memo; click to open the signed version.
               </p>
             </div>
           </div>
 
+          {/* ─── THE ANIMATED HERO DIAGRAM ─── */}
           <div className="mt-16 md:mt-20">
             <HeroMemo />
           </div>
         </div>
       </section>
 
-      {/* Step lede */}
-      <section className="mx-auto max-w-[1200px] px-6 md:px-8 pt-24 pb-4">
+      {/* ────────── TESTIMONIAL (portrait + pull-quote) ────────── */}
+      <section className="mx-auto max-w-[1200px] px-6 md:px-8 pt-24 pb-6">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-[220px_1fr] md:gap-16 md:items-center">
+          <figure className="relative max-w-[220px]">
+            <img
+              src="https://randomuser.me/api/portraits/women/44.jpg"
+              alt="Maya Alves — Associate, Sable Capital"
+              className="block w-full aspect-[4/5] object-cover filter grayscale-[0.4] contrast-[1.05]"
+              loading="lazy"
+            />
+            <figcaption className="mt-3 flex items-baseline justify-between pb-1 border-b border-line">
+              <span className="mono text-[10px] uppercase tracking-[0.16em] text-ink-3">
+                PLATE I
+              </span>
+              <span className="mono text-[10px] text-ink-3">APR · MMXXVI</span>
+            </figcaption>
+            <div className="mt-1.5 editorial-italic text-[13px] text-ink">
+              Maya Alves
+            </div>
+            <div className="text-[11px] text-ink-3">
+              Associate · Sable Capital
+            </div>
+          </figure>
+
+          <blockquote className="relative">
+            <span
+              aria-hidden
+              className="editorial absolute -left-1 -top-8 text-[140px] leading-none text-[color:var(--accent)] opacity-15 select-none"
+            >
+              "
+            </span>
+            <p className="editorial-italic text-[24px] leading-[1.35] tracking-[-0.008em] text-ink md:text-[28px]">
+              By the time I'd finished my first-pass memo on Thatch, the IC
+              had already voted on two other deals. This quarter I'm
+              shipping them in ninety seconds.
+            </p>
+            <footer className="mt-5 flex flex-wrap items-baseline gap-4 text-[12px] text-ink-3">
+              <span className="label !tracking-[0.16em]">— M. ALVES</span>
+              <span aria-hidden className="text-ink-4">·</span>
+              <span>drafted MEMO-0042 in 1m 24s</span>
+              <span aria-hidden className="text-ink-4">·</span>
+              <span className="mono">
+                pipeline v7.2 ·{" "}
+                <span className="text-[color:var(--accent)]">4f8c9e1</span>
+              </span>
+            </footer>
+          </blockquote>
+        </div>
+      </section>
+
+      {/* ────────── METHOD LEDE ────────── */}
+      <section className="mx-auto max-w-[1200px] px-6 md:px-8 pt-20 pb-4">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1fr_1.6fr] md:gap-16">
           <div>
             <div className="label">The method</div>
@@ -96,7 +147,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Inline product component (rule 2) */}
+      {/* ────────── INLINE PRODUCT COMPONENT ────────── */}
       <section className="mx-auto max-w-[1200px] px-6 md:px-8 pt-12 pb-8">
         <div className="mb-6 flex items-baseline justify-between">
           <div className="label">Specimen · risks section</div>
@@ -113,13 +164,11 @@ export default function LandingPage() {
           The component above is imported from the app — the same{" "}
           <code className="mono text-ink-2">{"<RisksSection>"}</code> your
           analysts read at 9am on the day of IC. Hover any{" "}
-          <span className="cite">[n]</span> to highlight its source. This
-          lives on the landing so you don't have to sign up to see what the
-          product produces.
+          <span className="cite">[n]</span> to highlight its source.
         </p>
       </section>
 
-      {/* Closing */}
+      {/* ────────── CLOSING ────────── */}
       <section className="mx-auto max-w-[1200px] px-6 md:px-8 pt-24 pb-4">
         <div className="mx-auto max-w-[660px] text-center">
           <div className="label">Press · α</div>
