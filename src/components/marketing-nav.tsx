@@ -14,7 +14,7 @@ export function MarketingNav() {
         </Link>
 
         <nav className="hidden items-center gap-7 text-[13px] text-ink-2 md:flex">
-          <Link href="/memos" className="hover:text-ink transition-colors">
+          <Link href="/app" className="hover:text-ink transition-colors">
             Memos
           </Link>
           <Link href="/docs" className="hover:text-ink transition-colors">

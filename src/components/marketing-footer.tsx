@@ -18,8 +18,8 @@ export function MarketingFooter() {
           <div>
             <div className="label">Product</div>
             <ul className="mt-3 space-y-2 text-[13px]">
-              <li><Link href="/app" className="text-ink-2 hover:text-ink transition-colors">Press</Link></li>
-              <li><Link href="/memos" className="text-ink-2 hover:text-ink transition-colors">Memos</Link></li>
+              <li><Link href="/app" className="text-ink-2 hover:text-ink transition-colors">Memos</Link></li>
+              <li><Link href="/app/new" className="text-ink-2 hover:text-ink transition-colors">Draft a memo</Link></li>
               <li><Link href="/docs" className="text-ink-2 hover:text-ink transition-colors">Method</Link></li>
               <li><Link href="/security" className="text-ink-2 hover:text-ink transition-colors">Security</Link></li>
             </ul>
