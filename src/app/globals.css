@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dossier — editorial light palette (locked M0) */
+  --paper:    #fafaf7;
+  --paper-2:  #f2f1ec;
+  --card:     #ffffff;
+
+  --ink:      #111111;
+  --ink-2:    #565656;
+  --ink-3:    #8a8a8a;
+  --ink-4:    #bdbdb8;
+
+  --line:     #e5e5e0;
+  --line-2:   #d2d2cc;
+
+  --accent:       #b91c1c;
+  --accent-2:     #7f1d1d;
+  --accent-soft:  #fce7e7;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ink-4: var(--ink-4);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+
+  --font-sans: var(--font-public-sans);
+  --font-serif: var(--font-newsreader);
+  --font-mono: var(--font-jetbrains);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  background: var(--paper);
+  color: var(--ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), "Public Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0;
+  line-height: 1.55;
 }
+
+.editorial {
+  font-family: var(--font-serif), "Newsreader", "Iowan Old Style", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+}
+.editorial-italic {
+  font-family: var(--font-serif), "Newsreader", "Iowan Old Style", Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.012em;
+}
+
+.label {
+  font-family: var(--font-sans), "Public Sans", sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.mono {
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--line-2);
+  border-radius: 10px;
+  border: 2px solid var(--paper);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--ink-4); }
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+.cite {
+  color: var(--accent);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.68em;
+  font-weight: 600;
+  vertical-align: super;
+  margin-left: 1px;
+  cursor: pointer;
+  transition: color 120ms ease;
+}
+.cite:hover {
+  color: var(--accent-2);
+  text-decoration: underline;
+}
+
+.rule        { border: 0; height: 1px; background: var(--line); }
+.rule-thick  { border: 0; height: 2px; background: var(--ink); }
