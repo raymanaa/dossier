@@ -1,6 +1,6 @@
 # Dossier — Investment memo automation
 
-> Portfolio project #4. Paste a company URL, get a signed investment memo with citations.
+>  Paste a company URL, get a signed investment memo with citations.
 
 ## M0 — Design direction (LOCKED)
 
